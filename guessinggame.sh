@@ -1,8 +1,8 @@
-!/usr/bin/bash
+#!/usr/bin/bash
 
 function Check(){
 
-total=$(ls -l | grep -v "dr" |wc -l)
+total=$(ls -l | grep "^-r" |wc -l)
 value=0
 echo "Guess how many files are in the current directory"
 
@@ -12,7 +12,7 @@ do
 	read value
 	if [ $value -lt $total ];
 	then
-		echo "too low";
+		echo "too low ";
 	elif [ $value -gt $total ];
 	then
 		echo "too high";
@@ -23,5 +23,5 @@ do
 done
 }
 
-
 Check
+
